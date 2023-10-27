@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action = "addItemServlet" method="post">
+	Brand: <input type ="text" name = "brand">
+	Shoe: <input type = "text" name = "shoe">
+	<input type = "submit" value="Add brand/shoe">
+	</form> <br />
+	
+	<form action = "addItemServlet2" method="post">
+	Make: <input type ="text" name = "make">
+	Model: <input type = "text" name = "model">
+	<input type = "submit" value="Add vehicle make/model">
+	</form> <br />
+	
+	<form action = "deleteItemServlet" method="post">
+	Brand: <input type ="text" name = "brand">
+	Shoe: <input type = "text" name = "shoe">
+	<input type = "submit" value="Delete brand/shoe">
+	</form> <br />
+	
+	<form action = "deleteItemServlet2" method="post">
+	Make: <input type ="text" name = "make">
+	Model: <input type = "text" name = "model">
+	<input type = "submit" value="Delete make/model">
+	</form> <br />
+	
+	<form action = "viewAllItemsServlet" method="GET">
+	<button type="submit">View all objects</button>
+	</form>
+</body>
+</html>
