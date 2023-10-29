@@ -30,11 +30,11 @@ public class DeleteItemServlet2 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String make = request.getParameter("make");
+		String title = request.getParameter("title");
 		
 		ListItemHelper2 dao = new ListItemHelper2();
 		
-		ListItem2 itemToDelete = dao.searchForItemByMake(make);
+		ListItem2 itemToDelete = dao.searchForItemByTitle(title);
 		dao.deleteItem(itemToDelete);
 		
 		getServletContext().getRequestDispatcher("/index.html").forward(request, response);

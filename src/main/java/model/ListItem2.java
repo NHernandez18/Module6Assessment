@@ -18,19 +18,19 @@ public class ListItem2 {
 	@GeneratedValue
 	@Column(name="ID")
 	private int id;
-	@Column(name="MAKE")
-	private String make;
-	@Column(name="MODEL")
-	private String model;
+	@Column(name="TITLE")
+	private String title;
+	@Column(name="AUTHOR")
+	private String author;
 	
 	public ListItem2() {
 		super();
 	}
-
-	public ListItem2(String make, String model) {
+	
+	public ListItem2(String title, String author) {
 		super();
-		this.make = make;
-		this.model = model;
+		this.title = title;
+		this.author = author;
 	}
 
 	public int getId() {
@@ -41,23 +41,23 @@ public class ListItem2 {
 		this.id = id;
 	}
 
-	public String getMake() {
-		return make;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setMake(String make) {
-		this.make = make;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	public String getModel() {
-		return model;
+	public String getAuthor() {
+		return author;
 	}
 
-	public void setModel(String model) {
-		this.model = model;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
-	
+
 	public	String	returnItemDetails(	)	{
-		return	this.make	+	":"	+	this.model;
+		return	this.title	+	":"	+	this.author;
 		}
 }

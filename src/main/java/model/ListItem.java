@@ -18,38 +18,46 @@ public class ListItem {
 	@GeneratedValue
 	@Column(name="ID")
 	private int id;
-	@Column(name="BRAND")
-	private String brand;
-	@Column(name="SHOE")
-	private String shoe;
+	@Column(name="TITLE")
+	private String title;
+	@Column(name="YEAR")
+	private String year;
 	
 	public ListItem() {
 		super();
 	}
-	
-	public ListItem(String brand, String shoe) {
+
+	public ListItem(String title, String year) {
 		super();
-		this.brand = brand;
-		this.shoe = shoe;
+		this.title = title;
+		this.year = year;
 	}
 
-	public String getBrand() {
-		return brand;
+	public int getId() {
+		return id;
 	}
 
-	public void setBrand(String brand) {
-		this.brand = brand;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getShoe() {
-		return shoe;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setShoe(String shoe) {
-		this.shoe = shoe;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
 	public	String	returnItemDetails(	)	{
-		return	this.brand	+	":"	+	this.shoe;
+		return	this.title	+	":"	+	this.year;
 		}
 }

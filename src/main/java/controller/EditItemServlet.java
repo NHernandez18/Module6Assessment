@@ -7,19 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.ListItem2;
+import model.ListItem;
 
 /**
- * Servlet implementation class AddItemServlet
+ * Servlet implementation class EditItemServlet
  */
-@WebServlet("/addItemServlet2")
-public class AddItemServlet2 extends HttpServlet {
+@WebServlet("/editItemServlet")
+public class EditItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddItemServlet2() {
+    public EditItemServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,12 +29,17 @@ public class AddItemServlet2 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String title = request.getParameter("title");
-		String author = request.getParameter("author");
+		ListItemHelper helper = new ListItemHelper ();
 		
-		ListItem2 li = new ListItem2(title, author);
-		ListItemHelper2 dao = new ListItemHelper2();
-		dao.insertItem(li);
+		String id = request.getParameter("id");
+		int movieId = Integer.parseInt(id);
+		String title = request.getParameter("title");
+		String year = request.getParameter("year");
+
+		ListItem movieToUpdate = helper.searchForItemById(movieId);
+		movieToUpdate.setTitle(title);
+		movieToUpdate.setYear(year);
+		helper.update(movieToUpdate);
 		
 		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 	}

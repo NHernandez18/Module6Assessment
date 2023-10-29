@@ -4,24 +4,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Movies and books</title>
 </head>
 <body>
 	
-	List of shoes and vehicles:
+	List of books and movies:
 	<table>
-		<c:forEach items="${requestScope.allShoes}" var="currentshoe">
+		<c:forEach items="${requestScope.allMovies}" var="currentmovie">
 			<tr>
 			 	<%-- <td><input type="radio" name="id" value="${currentitem.id}"></td>--%>
-				 <td>${currentshoe.brand}</td>
-				 <td>${currentshoe.shoe}</td>
+				 <td>${currentmovie.title}</td>
+				 <td>${currentmovie.year}</td>
 			 </tr>
 		
-		<c:forEach items="${requestScope.allVehicles}" var="currentvehicle">
+		<c:forEach items="${requestScope.allBooks}" var="currentbook">
 			<tr>
 				 <%-- <td><input type="radio" name="id" value="${currentitem.id}"></td>--%>
-				 <td>${currentvehicle.make}</td>
-				 <td>${currentvehicle.model}</td>
+				 <td>${currentbook.title}</td>
+				 <td>${currentbook.author}</td>
 				</tr>
 		</c:forEach>
 		</c:forEach>

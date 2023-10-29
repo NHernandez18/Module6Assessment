@@ -32,8 +32,8 @@ public class ViewAllItemsServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		ListItemHelper dao = new ListItemHelper();
 		ListItemHelper2 dao2 = new ListItemHelper2();
-		request.setAttribute("allShoes", dao.showAllItems());
-		request.setAttribute("allVehicles", dao2.showAllItems());
+		request.setAttribute("allMovies", dao.showAllItems());
+		request.setAttribute("allBooks", dao2.showAllItems());
 		String path = "/list-item.jsp";
 		
 		getServletContext().getRequestDispatcher(path).forward(request, response); 

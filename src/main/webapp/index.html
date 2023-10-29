@@ -2,35 +2,49 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Books and movies</title>
 </head>
 <body>
 	<form action = "addItemServlet" method="post">
-	Brand: <input type ="text" name = "brand">
-	Shoe: <input type = "text" name = "shoe">
-	<input type = "submit" value="Add brand/shoe">
+	Title: <input type ="text" name = "title">
+	Year: <input type = "text" name = "year">
+	<input type = "submit" value="Add Movie">
 	</form> <br />
 	
 	<form action = "addItemServlet2" method="post">
-	Make: <input type ="text" name = "make">
-	Model: <input type = "text" name = "model">
-	<input type = "submit" value="Add vehicle make/model">
+	Title: <input type ="text" name = "title">
+	Author: <input type = "text" name = "author">
+	<input type = "submit" value="Add book">
 	</form> <br />
 	
 	<form action = "deleteItemServlet" method="post">
-	Brand: <input type ="text" name = "brand">
-	Shoe: <input type = "text" name = "shoe">
-	<input type = "submit" value="Delete brand/shoe">
+	Title: <input type ="text" name = "title">
+	Year: <input type = "text" name = "year">
+	<input type = "submit" value="Delete Movie">
 	</form> <br />
 	
 	<form action = "deleteItemServlet2" method="post">
-	Make: <input type ="text" name = "make">
-	Model: <input type = "text" name = "model">
-	<input type = "submit" value="Delete make/model">
+	Title: <input type ="text" name = "title">
+	Author: <input type = "text" name = "author">
+	<input type = "submit" value="Delete book">
+	</form> <br />
+	
+	<form action = "editItemServlet" method="post">
+	Movie ID: <input type ="text" name = "id">
+	Title: <input type ="text" name = "title">
+	Movie: <input type = "text" name = "year">
+	<input type = "submit" value="Edit movie title/year">
+	</form> <br />
+	
+	<form action = "editItemServlet2" method="post">
+	Book ID: <input type ="text" name = "id">
+	Title: <input type ="text" name = "title">
+	Author: <input type = "text" name = "author">
+	<input type = "submit" value="Edit book title/author">
 	</form> <br />
 	
 	<form action = "viewAllItemsServlet" method="GET">
-	<button type="submit">View all objects</button>
+	<button type="submit">View all movies an books!!</button>
 	</form>
 </body>
 </html>

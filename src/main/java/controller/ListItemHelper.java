@@ -15,7 +15,7 @@ import model.ListItem;
  * Oct 20, 2023
  */
 public class ListItemHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Mod6Assessment");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("LibraryPartnerProject2");
 	
 	public void insertItem(ListItem	li) {
 		EntityManager em = emfactory.createEntityManager();
@@ -38,10 +38,10 @@ public class ListItemHelper {
 	public	void	deleteItem(ListItem	toDelete)	{
 		EntityManager	em	=	emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<ListItem>	typedQuery	=	em.createQuery("select	li	from ListItem	li	where	li.brand	=	:selectedBrand	and	li.shoe	=	:selectedShoe",	ListItem.class);
+		TypedQuery<ListItem>	typedQuery	=	em.createQuery("select	li	from ListItem	li	where	li.title	=	:selectedTitle	and	li.year	=	:selectedYear",	ListItem.class);
 		//Substitute	parameter	with	actual	data	from	the	toDelete	item
-		typedQuery.setParameter("selectedBrand",	toDelete.getBrand());
-		typedQuery.setParameter("selectedShoe",	toDelete.getShoe());
+		typedQuery.setParameter("selectedTitle",	toDelete.getTitle());
+		typedQuery.setParameter("selectedYear",	toDelete.getYear());
 		//we	only	want	one	result
 		typedQuery.setMaxResults(1);
 		//get	the	result	and	save	it	into	a	new	list	item
@@ -61,14 +61,24 @@ public class ListItemHelper {
 		return found;
 	}
 
-	public ListItem searchForItemByShoe(String shoe) {
+	public ListItem searchForItemByTitle(String title) {
 		// TODO Auto-generated method stub
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("Mod6Assessment");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("LibraryPartnerProject2");
 		EntityManager manager = factory.createEntityManager();
-		TypedQuery<ListItem> query = manager.createQuery("SELECT i FROM ListItem AS i WHERE i.shoe = :shoe", ListItem.class);
-		query.setParameter("shoe", shoe);
+		TypedQuery<ListItem> query = manager.createQuery("SELECT i FROM ListItem AS i WHERE i.title = :title", ListItem.class);
+		query.setParameter("title", title);
 		ListItem dbEntity = query.getSingleResult();
 		manager.close();
 		return dbEntity;
 	}
-	}
+	
+	public void update(ListItem model) {
+		EntityManager manager = emfactory.createEntityManager();
+		ListItem dbEntity = manager.find(ListItem.class, model.getId());
+		manager.getTransaction().begin();
+		dbEntity.setTitle(model.getTitle());
+		dbEntity.setYear(model.getYear());
+		manager.getTransaction().commit();
+		manager.close();
+	}	
+}
